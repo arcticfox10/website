@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Исторические шифры · Криптография</title>
- <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Исторические шифры · Криптография</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">🔐 Крипто<span>Графия</span></div>
-      <nav aria-label="Основное меню">
-        <ul>
-          <li><a href="index.html">🏠 Главная</a></li>
-          <li><a href="history.html" style="background:#2a3b5c;">📜 Шифры</a></li>
-          <li><a href="keys.html">🔑 Ключи</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <article>
-      <section class="card" id="caesar">
-        <h2>2.1 Шифр Цезаря</h2>
-        <p>Один из самых древних шифров. Юлий Цезарь использовал его для секретной переписки. Суть проста: каждая буква в слове сдвигается по алфавиту на фиксированное число позиций (ключ-сдвиг).</p>
-        
-        <div class="cipher-demo">
-          <strong>Пример со сдвигом 3 (русский алфавит, 33 буквы):</strong><br>
-          А → Г, Б → Д, В → Е, Г → Ё ... Я → В<br>
-          Слово <strong>«СЕКРЕТ»</strong> превратится в <strong>«ЁЗНУИХ»</strong>
+    <header>
+        <div class="header-inner">
+            <div class="logo">Криптография</div>
+            <nav aria-label="Основное меню">
+                <ul>
+                    <li><a href="index.html">Введение</a></li>
+                    <li><a href="history.html" class="active" aria-current="page">Шифры</a></li>
+                    <li><a href="keys.html">Ключи</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="alphabet-shift">
-          <span class="letter-pair">А→Г</span>
-          <span class="letter-pair">Б→Д</span>
-          <span class="letter-pair">В→Е</span>
-          <span class="letter-pair">Г→Ё</span>
-          <span class="letter-pair">Д→Ж</span>
-          <span class="letter-pair">Е→З</span>
-          <span class="letter-pair">Ё→И</span>
-          <span class="letter-pair">Ж→Й</span>
-          <span class="letter-pair">З→К</span>
-          <span class="letter-pair">И→Л</span>
-        </div>
+    <main>
+        <article>
+            <section class="card">
+                <h2>Шифр Цезаря</h2>
+                <p>Один из самых древних шифров. Юлий Цезарь использовал его для секретной переписки. Суть проста: каждая буква в слове сдвигается по алфавиту на фиксированное число позиций (ключ-сдвиг).</p>
 
-        <p>Это симметричный шифр, но очень ненадёжный — его легко взломать перебором (всего 33 варианта сдвига для русского алфавита).</p>
-        <p><small>[Исторический факт: использовался Юлием Цезарем для военной переписки]</small></p>
-      </section>
+                <div class="cipher-demo">
+                    Пример со сдвигом 3 (русский алфавит, 33 буквы):<br>
+                    А → Г, Б → Д, В → Е, Г → Ё ... Я → В<br>
+                    Слово «СЕКРЕТ» превратится в «ЁЗНУИХ»
+                </div>
 
-      <section class="card" id="vigenere">
-        <h2>2.2 Шифр Виженера</h2>
-        <p>Это усовершенствованный вариант шифра Цезаря. Вместо одного сдвига для всего текста используется <strong>ключевое слово</strong>. Сдвиг каждой буквы зависит от позиции буквы в ключевом слове.</p>
+                <div class="alphabet-shift">
+                    <span class="letter-pair">А→Г</span>
+                    <span class="letter-pair">Б→Д</span>
+                    <span class="letter-pair">В→Е</span>
+                    <span class="letter-pair">Г→Ё</span>
+                    <span class="letter-pair">Д→Ж</span>
+                    <span class="letter-pair">Е→З</span>
+                    <span class="letter-pair">Ё→И</span>
+                    <span class="letter-pair">Ж→Й</span>
+                    <span class="letter-pair">З→К</span>
+                    <span class="letter-pair">И→Л</span>
+                </div>
 
-        <div class="vigenere-box">
-          <strong>Пример с ключом «КЛЮЧ»:</strong><br>
-          • Первая буква текста шифруется сдвигом, соответствующим букве «К» (позиция 12)<br>
-          • Вторая — букве «Л» (позиция 13)<br>
-          • Третья — букве «Ю» (позиция 32)<br>
-          • Четвёртая — букве «Ч» (позиция 25)<br>
-          • Пятая — снова «К», и так далее по циклу.
-        </div>
+                <p>Это симметричный шифр, но очень ненадёжный — его легко взломать перебором (всего 33 варианта сдвига для русского алфавита).</p>
+            </section>
 
-        <p>Долгое время этот шифр считался невзламываемым, потому что <strong>частотный анализ</strong> букв (подсчёт, какая буква встречается чаще) не работал напрямую — одна и та же буква открытого текста могла быть зашифрована по-разному.</p>
-        <p><small>[Шифр опубликован Блезом Виженером в 1586 году, веками назывался «le chiffre indéchiffrable» — нерасшифровываемый шифр]</small></p>
-      </section>
+            <section class="card">
+                <h2>Шифр Виженера</h2>
+                <p>Это усовершенствованный вариант шифра Цезаря. Вместо одного сдвига для всего текста используется ключевое слово. Сдвиг каждой буквы зависит от позиции буквы в ключевом слове.</p>
 
-      <a href="keys.html" class="btn-link">🔑 Перейти к проблеме ключа →</a>
-    </article>
-  </main>
+                <div class="vigenere-box">
+                   Пример с ключом «КЛЮЧ»:<br>
+                    • Первая буква текста шифруется сдвигом, соответствующим букве «К» (позиция 12)<br>
+                    • Вторая — букве «Л» (позиция 13)<br>
+                    • Третья — букве «Ю» (позиция 32)<br>
+                    • Четвёртая — букве «Ч» (позиция 25)<br>
+                    • Пятая — снова «К», и так далее по циклу.
+                </div>
 
-  <footer class="footer" role="contentinfo">
-    <p>Итоговый проект Николаева Захара</p>
-  </footer>
+                <p>Долгое время этот шифр считался невзламываемым, потому что частотный анализ букв (подсчёт, какая буква встречается чаще) не работал напрямую — одна и та же буква открытого текста могла быть зашифрована по-разному.</p>
+            </section>
+
+            <a href="keys.html" class="btn-link">Перейти к проблеме ключа →</a>
+        </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <p>Итоговый проект Николаева Захара</p>
+    </footer>
 </body>
 </html>
