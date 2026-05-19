@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Проблема ключа · Криптография</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">🔐 Крипто<span>Графия</span></div>
+      <nav aria-label="Основное меню">
+        <ul>
+            <li><a href="index.html">🏠 Главная</a></li>
+            <li><a href="history.html">📜 Шифры</a></li>
+            <li><a href="keys.html" class="active">🔑 Ключи</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <section class="card" id="key-problem">
+        <h2>2.3 Проблема передачи ключа (дилемма первого контакта)</h2>
+        <p>Все исторические симметричные шифры упирались в одну стену: <strong>как передать ключ?</strong></p>
+
+        <div class="dilemma-illustration">
+          <div class="spy-box">
+            <div class="spy-icon">🕵️</div>
+            <strong>Шпион А</strong><br>
+            <small>Москва</small>
+          </div>
+          <div class="arrow-symbol">↔️ 🔑 ❓</div>
+          <div class="spy-box">
+            <div class="spy-icon">🕵️‍♀️</div>
+            <strong>Шпион Б</strong><br>
+            <small>Лондон</small>
+          </div>
+        </div>
+
+        <p>Представь двух шпионов в разных странах. Им нужно начать обмениваться шифровками. Чтобы отправить ключ, им нужен секретный канал (личная встреча, курьер), но если такой канал есть — зачем тогда шифровать?</p>
+
+        <div class="danger-zone">
+          ⚠️ Если передавать ключ по открытым каналам (письма, радио, интернет), его может перехватить враг и читать всю переписку.
+        </div>
+
+        <p>До 1970-х годов эта проблема казалась неразрешимой. Это называется <strong>«дилеммой первого контакта»</strong> или проблемой распределения ключей.</p>
+      </section>
+
+      <section class="card" id="solution">
+        <h2>Решение: асимметричное шифрование</h2>
+        <p>В 1970-х годах произошла революция: учёные (Диффи, Хеллман, а позже Ривест, Шамир, Адлеман) придумали систему с двумя ключами — открытым и закрытым.</p>
+
+        <div class="solution-highlight">
+          <strong>💡 Как это работает:</strong><br>
+          1. Шпион Б генерирует пару ключей: <strong>открытый</strong> (можно показывать всем) и <strong>закрытый</strong> (хранит в секрете).<br>
+          2. Шпион Б отправляет открытый ключ Шпиону А по обычной почте — перехват не страшен!<br>
+          3. Шпион А шифрует сообщение открытым ключом Б и отправляет обратно.<br>
+          4. Расшифровать это сообщение может <strong>только</strong> Шпион Б, используя свой закрытый ключ.
+        </div>
+
+        <p>Это решило проблему первого контакта. Современные мессенджеры (Telegram, WhatsApp) и HTTPS-соединения используют именно асимметричное шифрование для начального обмена симметричным ключом, а потом переходят на быстрый симметричный канал.</p>
+        <p><small>[Источники: алгоритм Диффи-Хеллмана (1976), RSA (1977) — основа современной криптографии]</small></p>
+      </section>
+
+      <a href="index.html" class="btn-link">🏠 Вернуться к введению</a>
+    </article>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p>Итоговый проект Николаева Захара</p>
+  </footer>
+</body>
+</html>
